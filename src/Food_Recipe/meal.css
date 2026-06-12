@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,800;0,900;1,700&display=swap');
+
+body {
+    background-color: #f6d2bf; 
+    color: #2d3748;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main-app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.app-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 35px;
+    background: linear-gradient(to right, #ff416c, #ff4b2b); /* Spicy Red to Orange */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.category-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.category-btn {
+    background: #ffffff;
+    color: #00050c;
+    border: 1px solid #e2e8f0;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+    color: #ff4b2b;
+    border-color: #ff4b2b;
+    background: rgba(255, 75, 43, 0.05);
+}
+
+.category-btn.active {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 6px 16px rgba(255, 75, 43, 0.35); 
+}
+
+/* --- Search Container & Form --- */
+.search-form {
+    max-width: 550px;
+    margin: 0 auto 50px auto;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 120px 15px 25px; /* Padding badhayi taaki text button ke niche na dabe */
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 50px;
+    color: #2d3748;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #ff4b2b;
+    box-shadow: 0 4px 20px rgba(255, 75, 43, 0.15);
+}
+
+/* --- Premium Pill Search Button --- */
+.search-btn {
+    position: absolute;
+    right: 6px; /* Capsule layout ke andar alignment */
+    padding: 10px 24px;
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 75, 43, 0.3);
+    transition: all 0.2s ease;
+}
+
+.search-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(255, 75, 43, 0.45);
+}
+
+.search-btn:active {
+    transform: scale(0.97);
+}
+
+/* --- Food Grid & Cards --- */
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.food-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 2px solid transparent; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.food-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(255, 75, 43, 0.12);
+    border-color: #ff4b2b !important; 
+}
+
+.card-img-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.food-card h5 {
+    margin: 0;
+    padding: 16px 15px;
+    font-size: 15px;
+    font-weight: 600; 
+    font-family: 'Poppins', sans-serif; 
+    color: #2d3748;
+}
+
+/* --- Modal Overlay & Content Box --- */
+div.modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.5) !important; 
+    backdrop-filter: blur(5px) !important; 
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 99999 !important;
+}
+
+div.modal-content {
+    background-color: #f6d2bf !important; 
+    color: #213962 !important;
+    border-radius: 24px !important;
+    padding: 35px !important;
+    max-width: 650px !important;
+    width: 90% !important;
+    max-height: 85vh !important; 
+    overflow-y: auto !important; 
+    position: relative !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2) !important;
+    animation: popInSmooth 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes popInSmooth {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-header-section {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.modal-img-container {
+    flex: 1;
+    max-width: 240px;
+}
+
+.modal-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover; 
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.modal-title-container h2 {
+    color: #1a202c !important; 
+    font-weight: 800 !important;
+    margin: 0 0 10px 0;
+    font-size: 26px;
+}
+
+.badge-tag {
+    background: #f7fafc !important;
+    color: #4a5568 !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.badge-tag.area-tag {
+    background: rgba(255, 75, 43, 0.08) !important;
+    color: #ff4b2b !important;
+    border: 1px solid rgba(255, 75, 43, 0.2) !important;
+}
+
+.modal-instructions {
+    text-align: left;
+    border-top: 1px solid #edf2f7;
+    padding-top: 20px;
+}
+
+.modal-instructions h3 {
+    color: #ff4b2b !important;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.modal-instructions p {
+    color: #011434 !important; 
+    line-height: 1.7;
+    font-size: 15px;
+    white-space: pre-line;
+}
+
+.close-btn {
+    position: absolute !important;
+    top: 15px !important;
+    right: 22px !important;
+    font-size: 32px !important;
+    font-weight: bold;
+    cursor: pointer;
+    color: #a0aec0 !important;
+    transition: color 0.2s ease;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #ff4b2b !important;
+}
+
+.modal-loading {
+    color: #ff4b2b;
+    text-align: center;
+    padding: 50px 0;
+    font-weight: 600;
+}
+
+/* --- Scrollbar Customized Layout --- */
+div.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+div.modal-content::-webkit-scrollbar-thumb {
+    background-color: #ff4b2b;
+    border-radius: 10px;
+}
+div.modal-content::-webkit-scrollbar-track {
+    background: #ffffff;
+}
